@@ -22,7 +22,7 @@ export function HomeAluno() {
       </View>
       <View style={styles.row}>
         <CustomButton title="Historico" iconName="history" screenName="screenB" />
-        <CustomButton title="Relatorio" iconName="file-text-o" screenName="screenC" />
+        <CustomButton title="Relatorio" iconName="file-text-o" screenName="RelatorioAluno" />
       </View>
       <View style={styles.row}>
         <CustomButton title="Conta" iconName="user" screenName="screenD" />

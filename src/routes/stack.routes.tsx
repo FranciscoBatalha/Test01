@@ -6,6 +6,7 @@ import { LoginAluno } from '../screens/LoginAluno'; // Certifique-se de usar o n
 import { LoginResponsavel } from '../screens/LoginResponsavel';
 import { LoginAdministrador } from '../screens/LoginAdministrador';
 import { HomeAluno } from '../screens/HomeAluno';
+import { RelatorioAluno } from '../screens/RelatorioAluno';
 
 
 const Stack = createNativeStackNavigator();
@@ -36,6 +37,11 @@ export function StackRoutes() {
             <Stack.Screen
                 name="HomeAluno"
                 component={HomeAluno}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="RelatorioAluno"
+                component={RelatorioAluno}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
