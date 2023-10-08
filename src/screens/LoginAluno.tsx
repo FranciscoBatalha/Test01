@@ -1,7 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
 
 export function LoginAluno() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.containerTop}>
@@ -49,7 +51,7 @@ export function LoginAluno() {
         <View style={[styles.layer, styles.whiteLayer]} />
         <View style={[styles.layer, styles.whiteLayer]} />
         <View style={styles.containerLow}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={() => navigation.navigate('HomeAluno')} style={styles.button}>
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
           <Text style={styles.descriptionLow}>Boas vindas !</Text>
