@@ -13,17 +13,17 @@ export function ScreenLogin() {
                 <Text style={styles.description}>Sistema de entrada e saída</Text>
             </View>
             <View style={styles.content}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity  onPress={() => navigation.navigate('LoginAluno')} style={styles.button}>
                     <Text style={styles.buttonText}>Aluno</Text>
                 </TouchableOpacity>
                 <Text style={styles.descriptionButton}>Apenas alunos cadastrados pela sua escola</Text>
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity onPress={() => navigation.navigate('LoginResponsavel')} style={styles.button}>
                     <Text style={styles.buttonText}>Responsável</Text>
                 </TouchableOpacity>
                 <Text style={styles.descriptionButton}>Apenas para responsáveis com filho matriculado <br/>na escola SESI SENAI</Text>
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity onPress={() => navigation.navigate('LoginAdministrador')} style={styles.button}>
                     <Text style={styles.buttonText}>Administrador</Text>
                 </TouchableOpacity>
                 <Text style={styles.descriptionButton}>Somente para pessoas autorizadas a controlar <br/> a saida e entrada</Text>
