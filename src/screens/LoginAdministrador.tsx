@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, TextInput, Image, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export function LoginAdministrador() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
     <View style={styles.containerTop} /* Usado para cobrir o background por causa de uma linha branca misteriosa*/ >
@@ -54,7 +56,7 @@ export function LoginAdministrador() {
       <View style={[styles.layer, styles.whiteLayer]} />
       <View style={[styles.layer, styles.whiteLayer]} />
           <View style={styles.containerLow}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={() => navigation.navigate('HomeAdministrador')} style={styles.button}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
       <Text style={styles.descriptionLow}>
