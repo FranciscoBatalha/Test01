@@ -25,11 +25,11 @@ export function HomeAluno() {
         <CustomButton title="Relatorio" iconName="file-text-o" screenName="RelatorioAluno" />
       </View>
       <View style={styles.row}>
-        <CustomButton title="Conta" iconName="user" screenName="screenD" />
+        <CustomButton title="Conta" iconName="user" screenName="DadosAluno" />
         <CustomButton title="Chat" iconName="comment-o" screenName="screenE" />
       </View>
       <View style={styles.row}>
-        <CustomButton title="Notificacoes" iconName="bell" screenName="screenF" />
+        <CustomButton title="Notificacoes" iconName="bell" screenName="Notifica" />
         <CustomButton title="Botão 6" onPress={() => {}} />
       </View>
       <View style={styles.row}>

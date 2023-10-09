@@ -7,6 +7,8 @@ import { LoginResponsavel } from '../screens/LoginResponsavel';
 import { LoginAdministrador } from '../screens/LoginAdministrador';
 import { HomeAluno } from '../screens/HomeAluno';
 import { RelatorioAluno } from '../screens/RelatorioAluno';
+import { Notifica } from '../screens/Notifica';
+import { DadosAluno } from '../screens/DadosAluno';
 
 
 const Stack = createNativeStackNavigator();
@@ -42,6 +44,16 @@ export function StackRoutes() {
             <Stack.Screen
                 name="RelatorioAluno"
                 component={RelatorioAluno}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="Notifica"
+                component={Notifica}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="DadosAluno"
+                component={DadosAluno}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
