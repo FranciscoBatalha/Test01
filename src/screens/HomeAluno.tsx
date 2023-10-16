@@ -26,7 +26,7 @@ export function HomeAluno() {
       </View>
       <View style={styles.row}>
         <CustomButton title="Conta" iconName="user" screenName="DadosAluno" />
-        <CustomButton title="Chat" iconName="comment-o" screenName="screenE" />
+        <CustomButton title="Chat" iconName="comment-o" screenName="ChatAluno" />
       </View>
       <View style={styles.row}>
         <CustomButton title="Notificacoes" iconName="bell" screenName="Notifica" />

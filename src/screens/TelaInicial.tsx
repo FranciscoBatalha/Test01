@@ -9,6 +9,11 @@ export function ScreenLogin() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.imageContainer}>
+            <Image
+          source={require('../img/senai.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
                 <Text style={styles.title}>Acesso Escolar</Text>
                 <Text style={styles.description}>Sistema de entrada e saída</Text>
             </View>

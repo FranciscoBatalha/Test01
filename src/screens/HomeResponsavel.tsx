@@ -25,8 +25,8 @@ export function HomeResponsavel() {
         <CustomButton title="Relatorio" iconName="file-text-o" screenName="RelatorioAluno" />
       </View>
       <View style={styles.row}>
-        <CustomButton title="Conta" iconName="user" screenName="DadosAluno" />
-        <CustomButton title="Chat" iconName="comment-o" screenName="screenE" />
+        <CustomButton title="Conta" iconName="user" screenName="DadosResponsavel" />
+        <CustomButton title="Chat" iconName="comment-o" screenName="ChatResponsavel" />
       </View>
       <View style={styles.row}>
         <CustomButton title="Notificacoes" iconName="bell" screenName="Notifica" />

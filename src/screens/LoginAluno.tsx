@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TextInput, Text, TouchableOpacity, Image } from 'react-native';
 
 export function LoginAluno() {
   const navigation = useNavigation();
@@ -9,6 +9,11 @@ export function LoginAluno() {
       <View style={styles.containerTop}>
         <View style={[styles.layer, styles.lightBlueLayer]} />
         <View style={styles.imageContainer}>
+        <Image
+          source={require('../img/senai.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
           <Text style={styles.title}>Acesso Escolar</Text>
           <Text style={styles.description}>Sistema de entrada e saída</Text>
         </View>

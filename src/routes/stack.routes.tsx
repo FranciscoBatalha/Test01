@@ -11,6 +11,9 @@ import { Notifica } from '../screens/Notifica';
 import { DadosAluno } from '../screens/DadosAluno';
 import { HomeResponsavel} from '../screens/HomeResponsavel';
 import { HomeAdministrador} from '../screens/HomeAdministrador';
+import { DadosResponsavel} from '../screens/DadosResponsavel';
+import { ChatAluno} from '../screens/ChatAluno';
+import { ChatResponsavel} from '../screens/ChatResponsavel';
 
 
 const Stack = createNativeStackNavigator();
@@ -46,17 +49,17 @@ export function StackRoutes() {
             <Stack.Screen
                 name="RelatorioAluno"
                 component={RelatorioAluno}
-                options={{ headerShown: false }}
+                options={{ headerShown: true, title: false }}
             />
             <Stack.Screen
                 name="Notifica"
                 component={Notifica}
-                options={{ headerShown: false }}
+                options={{ headerShown: true, title: false }}
             />
             <Stack.Screen
                 name="DadosAluno"
                 component={DadosAluno}
-                options={{ headerShown: false }}
+                options={{ headerShown: true, title: false }}
             />
             <Stack.Screen
                 name="HomeResponsavel"
@@ -67,6 +70,21 @@ export function StackRoutes() {
                 name="HomeAdministrador"
                 component={HomeAdministrador}
                 options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="DadosResponsavel"
+                component={DadosResponsavel}
+                options={{ headerShown: true, title: false }}
+            />
+            <Stack.Screen
+                name="ChatAluno"
+                component={ChatAluno}
+                options={{ headerShown: true, title: false}}
+            />
+            <Stack.Screen
+                name="ChatResponsavel"
+                component={ChatResponsavel}
+                options={{ headerShown: true, title: false }}
             />
         </Stack.Navigator>
     );
