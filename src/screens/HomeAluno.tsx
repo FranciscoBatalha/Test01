@@ -21,7 +21,7 @@ export function HomeAluno() {
         <Text style={styles.subtitle}>Sistema de Entrada e Saida</Text>
       </View>
       <View style={styles.row}>
-        <CustomButton title="Historico" iconName="history" screenName="screenB" />
+        <CustomButton title="Presença" iconName="history" screenName="PresenteProfessor" />
         <CustomButton title="Relatorio" iconName="file-text-o" screenName="RelatorioAluno" />
       </View>
       <View style={styles.row}>
@@ -30,11 +30,6 @@ export function HomeAluno() {
       </View>
       <View style={styles.row}>
         <CustomButton title="Notificacoes" iconName="bell" screenName="Notifica" />
-        <CustomButton title="Botão 6" onPress={() => {}} />
-      </View>
-      <View style={styles.row}>
-        <CustomButton title="Botão 7" onPress={() => {}} />
-        <CustomButton title="Botão 8" onPress={() => {}} />
       </View>
     </View>
   );
