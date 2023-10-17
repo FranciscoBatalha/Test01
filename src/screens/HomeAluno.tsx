@@ -21,7 +21,7 @@ export function HomeAluno() {
         <Text style={styles.subtitle}>Sistema de Entrada e Saida</Text>
       </View>
       <View style={styles.row}>
-        <CustomButton title="Presença" iconName="history" screenName="PresenteProfessor" />
+        <CustomButton title="Presença" iconName="history" screenName="ScreenEscolha" />
         <CustomButton title="Relatorio" iconName="file-text-o" screenName="RelatorioAluno" />
       </View>
       <View style={styles.row}>
