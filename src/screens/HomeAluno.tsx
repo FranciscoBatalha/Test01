@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { useNavigation } from '@react-navigation/native';
@@ -16,20 +16,29 @@ export function HomeAluno() {
 
   return (
     <View style={styles.container}>
+      {/* Image container */}
+      <View style={styles.imageContainer}>
+        <Image
+          source={require('../img/senai.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
+
       <View style={styles.topContent}>
         <Text style={styles.title}>Acesso Escolar</Text>
-        <Text style={styles.subtitle}>Sistema de Entrada e Saida</Text>
+        <Text style={styles.subtitle}>Sistema de Entrada e Saída</Text>
       </View>
       <View style={styles.row}>
         <CustomButton title="Presença" iconName="history" screenName="ScreenEscolha" />
-        <CustomButton title="Relatorio" iconName="file-text-o" screenName="RelatorioAluno" />
+        <CustomButton title="Relatório" iconName="file-text-o" screenName="RelatorioAluno" />
       </View>
       <View style={styles.row}>
         <CustomButton title="Conta" iconName="user" screenName="DadosAluno" />
         <CustomButton title="Chat" iconName="comment-o" screenName="ChatAluno" />
       </View>
       <View style={styles.row}>
-        <CustomButton title="Notificacoes" iconName="bell" screenName="Notifica" />
+        <CustomButton title="Notificações" iconName="bell" screenName="Notifica" />
       </View>
     </View>
   );
@@ -44,6 +53,7 @@ const styles = StyleSheet.create({
   topContent: {
     alignItems: 'center',
     marginBottom: 20,
+    marginTop: -20, // Adjust the marginTop to move the "Acesso Escolar" text closer to the logo
   },
   title: {
     fontSize: 24,
@@ -73,5 +83,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginTop: 10,
+  },
+  // Image container styles
+  imageContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 120,
+    height: 120,
   },
 });

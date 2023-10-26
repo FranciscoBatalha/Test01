@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { useNavigation } from '@react-navigation/native';
@@ -16,9 +16,16 @@ export function HomeResponsavel() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image
+          source={require('../img/senai.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
       <View style={styles.topContent}>
-        <Text style={styles.title}>Acesso Res</Text>
-        <Text style={styles.subtitle}>Sistema de Entrada e Saida</Text>
+        <Text style={styles.title}>Acesso Escolar</Text>
+        <Text style={styles.subtitle}>Sistema de Entrada e Saída</Text>
       </View>
       <View style={styles.row}>
         <CustomButton title="Historico" iconName="history" screenName="ScreenEscolha" />
@@ -44,6 +51,7 @@ const styles = StyleSheet.create({
   topContent: {
     alignItems: 'center',
     marginBottom: 20,
+    marginTop: -20, // Adjust the marginTop to move the "Acesso Res" text closer to the logo
   },
   title: {
     fontSize: 24,
@@ -73,5 +81,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginTop: 10,
+  },
+  // Image container styles
+  imageContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 120,
+    height: 120,
   },
 });

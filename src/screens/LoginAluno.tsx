@@ -1,19 +1,24 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Text, TouchableOpacity, Image } from 'react-native';
 
 export function LoginAluno() {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const isLoginDisabled = email === '' || password === '';
+
   return (
     <View style={styles.container}>
       <View style={styles.containerTop}>
         <View style={[styles.layer, styles.lightBlueLayer]} />
         <View style={styles.imageContainer}>
-        <Image
-          source={require('../img/senai.png')}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+          <Image
+            source={require('../img/senai.png')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
           <Text style={styles.title}>Acesso Escolar</Text>
           <Text style={styles.description}>Sistema de entrada e saída</Text>
         </View>
@@ -34,36 +39,51 @@ export function LoginAluno() {
           <View style={[styles.layer, styles.greyLayer]} />
           <View style={[styles.layer, styles.greyLayer]} />
           <View style={[styles.layer, styles.greyLayer]} />
-          <View style={[styles.layer, styles.greyLayer]} />
         </View>
         <View style={[styles.layer, styles.greyLayer]} />
-        <View style={styles.whiteBottom}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            keyboardType="email-address"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Senha"
-            secureTextEntry={true}
-          />
-        </View>
-        <View style={[styles.layer, styles.whiteLayer]} />
-        <View style={[styles.layer, styles.whiteLayer]} />
-        <View style={[styles.layer, styles.whiteLayer]} />
-        <View style={[styles.layer, styles.whiteLayer]} />
-        <View style={[styles.layer, styles.whiteLayer]} />
-        <View style={[styles.layer, styles.whiteLayer]} />
-        <View style={styles.containerLow}>
-          <TouchableOpacity onPress={() => navigation.navigate('HomeAluno')} style={styles.button}>
-            <Text style={styles.buttonText}>Entrar</Text>
-          </TouchableOpacity>
-          <Text style={styles.descriptionLow}>Boas vindas !</Text>
-        </View>
-        <View style={[styles.layer, styles.whiteLayer]} />
-        <View style={[styles.layer, styles.whiteLayer]} />
+        <View style={styles.whiteBottom} />
       </View>
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
+        />
+      </View>
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={styles.containerLow}>
+        <TouchableOpacity
+          onPress={() => {
+            if (!isLoginDisabled) {
+              navigation.navigate('HomeAluno');
+            }
+          }}
+          style={[styles.button, isLoginDisabled ? styles.disabledButton : null]}
+          disabled={isLoginDisabled}
+        >
+          <Text style={styles.buttonText}>Entrar</Text>
+        </TouchableOpacity>
+        <Text style={styles.descriptionLow}>
+          Boas vindas!
+        </Text>
+      </View>
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={[styles.layer, styles.whiteLayer]} />
     </View>
   );
 }
@@ -72,11 +92,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+    backgroundColor: 'white',
   },
   containerLow: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'white',
   },
   containerTop: {
     backgroundColor: '#7ec9ff',
@@ -89,6 +111,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
     backgroundColor: '#7ec9ff',
+  },
+  logo: {
+    width: 120,
+    height: 120,
   },
   title: {
     fontSize: 40,
@@ -152,7 +178,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     color: 'gray',
     fontSize: 17,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: 'white',
     elevation: 2,
     shadowColor: 'black',
     shadowOpacity: 0.3,
@@ -171,10 +197,19 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
   },
+  disabledButton: {
+    backgroundColor: 'gray',
+  },
   buttonText: {
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  description: {
+    fontSize: 25,
+    color: 'black',
+    marginTop: -7,
+    textAlign: 'center',
   },
   descriptionLow: {
     marginTop: 0,
@@ -185,5 +220,3 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
-

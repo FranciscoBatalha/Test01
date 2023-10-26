@@ -1,91 +1,112 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Image, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export function LoginAdministrador() {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    if (email && password) {
+      // Navigate to the HomeAdministrador screen or perform your login logic here
+      navigation.navigate('HomeAdministrador');
+    }
+  };
+
   return (
     <View style={styles.container}>
-    <View style={styles.containerTop} /* Usado para cobrir o background por causa de uma linha branca misteriosa*/ >
-      <View style={[styles.layer, styles.lightBlueLayer]} />
-      <View style={styles.imageContainer}>
-        <Text style={styles.title}>Acesso Escolar</Text>
-        <Text style={styles.description}>Sistema de entrada e saída</Text>
-           </View>
-      </View>
-      <View style={[styles.layer, styles.lightBlueLayer]} />
-            <View style={styles.containerMid}>
-      <View style={[styles.layer, styles.greyLayer1]}>
-        <View style={styles.greyBottom} /* Border cinza*//>
-             <View style={[styles.layer, styles.greyLayer]} />
-             <View style={styles.inputContainer} /* Email, Senha e Repita senha*/ > 
-            <Text style={styles.title2}>Faça seu Login</Text>
-              </View>
-                <View style={[styles.layer, styles.greyLayer]} />
-                <View style={[styles.layer, styles.greyLayer]} />
-                <View style={[styles.layer, styles.greyLayer]} />
-                <View style={[styles.layer, styles.greyLayer]} />
-                <View style={[styles.layer, styles.greyLayer]} />
-                <View style={[styles.layer, styles.greyLayer]} />
-                <View style={[styles.layer, styles.greyLayer]} />
-                <View style={[styles.layer, styles.greyLayer]} />
-             <View style={[styles.layer, styles.greyLayer]} />
-      </View>
-      <View style={[styles.layer, styles.greyLayer]}>
-            </View>
-        <View style={styles.whiteBottom} /* Border branco*/>
+      <View style={styles.containerTop}>
+        <View style={[styles.layer, styles.lightBlueLayer]} />
+        <View style={styles.imageContainer}>
+          <Image
+            source={require('../img/senai.png')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+          <Text style={styles.title}>Acesso Escolar</Text>
+          <Text style={styles.description}>Sistema de entrada e saída</Text>
         </View>
       </View>
-      <View style={[styles.layer, styles.whiteLayer]} />
-            <View style={styles.inputContainer} /* Email, Senha e Repita senha*/ > 
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              keyboardType="email-address"
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Senha"
-              secureTextEntry={true}
-            />
+      <View style={[styles.layer, styles.lightBlueLayer]} />
+      <View style={styles.containerMid}>
+        <View style={[styles.layer, styles.greyLayer1]}>
+          <View style={styles.greyBottom} />
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={styles.inputContainer}>
+            <Text style={styles.title2}>Faça seu Login</Text>
           </View>
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={[styles.layer, styles.greyLayer]} />
+          <View style={[styles.layer, styles.greyLayer]} />
+        </View>
+        <View style={[styles.layer, styles.greyLayer]} />
+        <View style={styles.whiteBottom} />
+      </View>
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
+        />
+      </View>
       <View style={[styles.layer, styles.whiteLayer]} />
       <View style={[styles.layer, styles.whiteLayer]} />
       <View style={[styles.layer, styles.whiteLayer]} />
       <View style={[styles.layer, styles.whiteLayer]} />
       <View style={[styles.layer, styles.whiteLayer]} />
       <View style={[styles.layer, styles.whiteLayer]} />
-          <View style={styles.containerLow}>
-      <TouchableOpacity onPress={() => navigation.navigate('HomeAdministrador')} style={styles.button}>
-        <Text style={styles.buttonText}>Entrar</Text>
-      </TouchableOpacity>
-      <Text style={styles.descriptionLow}>
-        Boas vindas !
-      </Text>
+      <View style={styles.containerLow}>
+        <TouchableOpacity
+          onPress={handleLogin}
+          style={[
+            styles.button,
+            { backgroundColor: email && password ? '#3eaaf9' : '#ccc' },
+          ]}
+          disabled={!email || !password}
+        >
+          <Text style={styles.buttonText}>Entrar</Text>
+        </TouchableOpacity>
+        <Text style={styles.descriptionLow}>Boas vindas !</Text>
+      </View>
+      <View style={[styles.layer, styles.whiteLayer]} />
+      <View style={[styles.layer, styles.whiteLayer]} />
     </View>
-      <View style={[styles.layer, styles.whiteLayer]} />
-      <View style={[styles.layer, styles.whiteLayer]} />
-    </View>
-    
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+    backgroundColor: 'white',
   },
-    containerLow: {
+  containerLow: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-    containerTop: {
+  containerTop: {
     backgroundColor: '#7ec9ff',
   },
-    containerMid: {
+  containerMid: {
     backgroundColor: '#ececec',
-    
   },
   imageContainer: {
     justifyContent: 'center',
@@ -96,7 +117,6 @@ const styles = StyleSheet.create({
   logo: {
     width: 120,
     height: 120,
-    
   },
   title: {
     fontSize: 40,
@@ -104,52 +124,51 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: -30,
   },
-    title2: {
+  title2: {
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 20, //mude isso
-    marginBottom: 50, //mude isso
+    marginTop: 20,
+    marginBottom: 50,
   },
-
   layer: {
     flex: 1,
   },
   lightBlueLayer: {
-    backgroundColor: '#7ec9ff', // Fundo azul
+    backgroundColor: '#7ec9ff',
   },
   greyLayer: {
-    backgroundColor: '#ececec', // Fundo cinza do border
+    backgroundColor: '#ececec',
     flex: 1,
     overflow: 'hidden',
     marginBottom: -8,
   },
   greyLayer1: {
-    backgroundColor: '#7ec9ff', // Fundo azul do border
+    backgroundColor: '#7ec9ff',
     flex: 1,
     overflow: 'hidden',
   },
   whiteLayer: {
-    backgroundColor: '#FFFFFF', // Fundo branco
+    backgroundColor: '#FFFFFF',
   },
   whiteBottom: {
     flex: 1,
-    backgroundColor: 'white', // Fundo branco
+    backgroundColor: 'white',
     padding: 20,
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
-    marginTop: -20, //mude isso
+    marginTop: -20,
   },
   greyBottom: {
     flex: 1,
-    backgroundColor: '#ececec', // Fundo cinza
+    backgroundColor: '#ececec',
     padding: 20,
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
   },
   inputContainer: {
     flex: 1,
-    justifyContent: 'center', // Centraliza verticalmente
+    justifyContent: 'center',
     paddingHorizontal: 20,
     marginBottom: 53,
   },
@@ -161,22 +180,20 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     color: 'gray',
     fontSize: 17,
-    backgroundColor: '#f1f1f1',
-    elevation: 2, // Adiciona sombra no Android
-    shadowColor: 'black', // Adiciona sombra no iOS
+    backgroundColor: 'white',
+    elevation: 2,
+    shadowColor: 'black',
     shadowOpacity: 0.3,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
-    
   },
-    button: {
-    backgroundColor: '#3eaaf9',
+  button: {
     paddingHorizontal: 55,
     paddingVertical: 10,
     borderRadius: 20,
     padding: 15,
-    elevation: 2, // Adiciona sombra no Android
-    shadowColor: 'black', // Adiciona sombra no iOS
+    elevation: 2,
+    shadowColor: 'black',
     shadowOpacity: 0.4,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
@@ -192,7 +209,7 @@ const styles = StyleSheet.create({
     marginTop: -7,
     textAlign: 'center',
   },
-    descriptionLow: {
+  descriptionLow: {
     marginTop: 0,
     marginBottom: 24,
     fontSize: 14,
